@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>끝말 잇기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root" >
+        <div>
+            {{word}}
+        </div>
+        <form v-on:submit="onSubmit">
+            <input v-model="userInput" ref="answer"/>
+            <button>결과 보기</button>
+        </form> 
+        <div>
+            결과: {{result}}
+        </div>
+    </div>
+</body>
+<script>
+
+    var app = new Vue({
+        el: "#root",
+        data: {
+            result: "",
+            word: "그림자",
+            userInput: "",
+        },
+        methods: {
+            onSubmit(e) {
+                e.preventDefault()
+                this.result = this.word.substr(-1) === this.userInput.substr(0, 1)
+
+                if(this.result) {
+
+                    this.word = this.userInput
+                } else {
+                }
+                this.userInput = ""
+                this.$refs.answer.focus()
+
+            }
+        }
+    })
+
+</script>
+</html>
