@@ -9,26 +9,34 @@
 </head>
 <body>
     <div id="root" >
-        <div>
-            {{word}}
-        </div>
-        <form v-on:submit="onSubmit">
-            <input v-model="userInput" ref="answer"/>
-            <button>결과 보기</button>
-        </form> 
-        <div>
-            결과: {{result}}
-        </div>
+        <word-relation start-word="오디오"></word-relation>
+        <word-relation start-word="자라"></word-relation>
+        <word-relation start-word="스피커"></word-relation>
     </div>
 </body>
 <script>
-
-    var app = new Vue({
-        el: "#root",
-        data: {
-            result: "",
-            word: "그림자",
-            userInput: "",
+    Vue.component("WordRelation", {
+        template: `
+            <div>
+                <div>
+                    {{word}}
+                </div>
+                <form v-on:submit="onSubmit">
+                    <input v-model="userInput" ref="answer"/>
+                    <button>결과 보기</button>
+                </form>
+                <div>
+                    결과: {{result}}
+                </div>
+            </div>
+        `,
+        props: ["startWord"],
+        data() {
+            return {
+                result: "",
+                word: this.startWord,
+                userInput: "",
+            }
         },
         methods: {
             onSubmit(e) {
@@ -47,5 +55,9 @@
         }
     })
 
+    var app = new Vue({
+        el: "#root",
+        
+    })
 </script>
 </html>

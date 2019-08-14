@@ -1,0 +1,25 @@
+<template>
+    <div>
+        <h1>{{result}}</h1>
+        <form v-on:submit="onSubmit">
+            <input ref="answer" maxlength="4" v-model="value" />
+            <button v-on:click="onClick"></button>
+        </form>
+        <div>시도{{}}</div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: "",
+        }
+    },
+    methods: {
+        onSubmit(e) {
+            e.preventDefault()
+        }
+    }
+}
+</script>
