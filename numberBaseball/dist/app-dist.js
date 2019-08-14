@@ -90,11 +90,11 @@
 /*!**********************!*\
   !*** ./src/index.ts ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n// import Vue from \"vue\"\r\nvar vue_1 = __importDefault(__webpack_require__(/*! vue */ \"vue\"));\r\nconsole.log(\"Vue\", vue_1.default);\r\n// import numberBaseball from \"./numberBaseball.vue\"\r\n// // const Vue = require(\"vue\")\r\n// console.log(\"Vue\", Vue)\r\n// new Vue(numberBaseball).$mount(\"#root\")\r\nvar v = new vue_1.default({\r\n    el: \"#root\",\r\n    template: \"\\n        <div>\\n            <div>Hello {{name}}!</div>\\n            Name: <input v-model=\\\"name\\\" type=\\\"text\\\">\\n        </div>\\n    \",\r\n    data: {\r\n        name: \"World\"\r\n    }\r\n});\r\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ \"vue\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module './numberBaseball.vue'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n// import Vue from \"vue\"\r\n\r\n\r\nconsole.log(\"Vue\", vue__WEBPACK_IMPORTED_MODULE_0___default.a);\r\n// // const Vue = require(\"vue\")\r\nconsole.log(\"Vue\", vue__WEBPACK_IMPORTED_MODULE_0___default.a);\r\nnew vue__WEBPACK_IMPORTED_MODULE_0___default.a(!(function webpackMissingModule() { var e = new Error(\"Cannot find module './numberBaseball.vue'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())).$mount(\"#root\");\r\n// let v = new Vue({\r\n//     el: \"#root\",\r\n//     template: `\r\n//         <div>\r\n//             <div>Hello {{name}}!</div>\r\n//             Name: <input v-model=\"name\" type=\"text\">\r\n//         </div>\r\n//     `,\r\n//     data: {\r\n//         name: \"World\"\r\n//     }\r\n// });\r\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ }),
 
