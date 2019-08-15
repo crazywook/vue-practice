@@ -25,12 +25,24 @@ export default {
     },
     methods: {
         onSubmit(e) {
+            const inputNumberArr = this.value.split("").map(v => parseInt(v))
+
+            const result = getResult(this.answer, inputNumberArr)
 
             this.tries.push({
                 try: this.value,
-                result: getResult(this.answer, this.value)
+                result
             })
+            console.log("result", result, result==="홈런")
+            if(result === "홈런") {
+                alert("승리했습니다.")
+            }
+            if(this.tries.length >= 7 && result !== "홈런") {
+                alert("게임오버")
+            }
+
             this.value = ""
+            this.$refs.answer.focus()
         },
         onClick() {
             
@@ -57,13 +69,14 @@ function getResult(answer, value)
 
     const {strike, ball} = answer.reduce(
         ({strike, ball}, target, i) => {
-            if( checkStrike(target, parseInt(value[i])) ) {
+            if( checkStrike(target, value[i]) ) {
                 return {
                     strike: strike + 1,
                     ball
                 }
             } else {
                 const currBall = value.includes(target) ? 1 : 0
+                console.log("Value", value, "Target", target, "currBall", currBall)
                 return {
                     strike,
                     ball: ball + currBall
@@ -87,6 +100,7 @@ function getResult(answer, value)
 }
 
 function checkStrike(t, s) {
+    console.log("t", t, "S", s, "Result", t === s)
     return t === s
 }
 
