@@ -35,15 +35,9 @@ const handImageXPosition = {
     paper: "-284px"
 }
 
-const recordTimes = {
-
-    startTime: 0,
-    endTime: 0
-}
-
 let computerHandChangeInterval: NodeJS.Timeout
 
-const component = Vue.extend<DataType, MethodsType, unknown, never>({
+const component = Vue.extend<DataType, MethodsType, ComputedType, never>({
     data() {
         return {
             result: "",
@@ -107,14 +101,6 @@ const component = Vue.extend<DataType, MethodsType, unknown, never>({
         clearInterval(computerHandChangeInterval)
     },
 })
-
-function calculateResponseTimeAverage(ns: number[]): number {
-    let sum = 0
-    for (const n of ns) {
-        sum += n
-    }
-    return parseInt( (sum / ns.length).toFixed(2) )
-}
 
 function getGameResult(me: Hand, target: Hand): "win" | "lose" | "draw" {
     console.log("me", me)
