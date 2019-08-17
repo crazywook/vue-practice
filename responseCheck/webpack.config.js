@@ -4,8 +4,10 @@ const distRoot = path.resolve(__dirname, "dist")
 
 module.exports = {
     mode: "development",
-    devtool: "eval",
-    entry: ["./src/index.ts"],
+    devtool: "source-map",
+    entry: {
+        app: ["./src/index.ts"]
+    },
     resolve: {
         extensions: ["vue", "ts", "js", "json"],
         alias: {
@@ -19,16 +21,16 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                    }   
-                }
-            },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_modules/,
+            //     use: {
+            //         loader: 'babel-loader',
+            //         options: {
+            //             presets: ['@babel/preset-env'],
+            //         }   
+            //     }
+            // },
             {
                 test: /\.vue$/,
                 loader: "vue-loader",
@@ -45,13 +47,10 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: "vue-style-loader"
+                        loader: "style-loader"
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                          modules: true,
-                        }
                     }
                 ]
             }

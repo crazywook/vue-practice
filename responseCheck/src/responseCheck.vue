@@ -1,8 +1,14 @@
 <template>
     <div>
-        <div id="screen" v-bind:class="state">{{}}</div>
-        <div>  
-            <div>평균시간</div>
+        <div 
+            id="screen"
+            v-bind:class="state"
+            @click="onClick"
+        >
+            {{message}}
+        </div>
+        <div v-show="responseTimes.length">  
+            <div>{{`${responseTimeAverage}ms` || "0ms"}}</div>
             <button @click="onReset">리셋</button>
         </div>
     </div>
@@ -17,14 +23,18 @@ export default s
         width: 300px;
         height: 200px;
         text-align: center;
-    }
-    #screen.wating {
-        background-color: aqua;
+        user-select: none;
     }
     #screen.ready {
-        background-color: yellow;
-    }
-    #screen.wating {
         background-color: aqua;
+    }
+    #screen.waiting {
+        background-color: aqua;
+    }
+    #screen.now {
+        background-color: greenyellow;
+    }
+    #screen.fail {
+        background-color: red;
     }
 </style>
