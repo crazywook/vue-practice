@@ -1,8 +1,8 @@
 <template>
     <div v-bind:class="['win-ball', winBallClassName]" >{{number}}</div>
 </template>
-<script>
-import {LottoBall} from "./lottoBall.ts"
+<script lang="ts">
+import {LottoBall} from "./lottoBallScript"
 export default LottoBall
 </script>
 <style scoped>

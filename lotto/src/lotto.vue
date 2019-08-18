@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>{{result}}</h1>
+        <temp/>
+        <!-- <h1>{{result}}</h1>
         <div class="win-balls"> 
             <lotto-ball
                 v-for="ball in winBalls" v-bind:key="ball"
@@ -16,15 +17,15 @@
             >
                 한번 더!
             </button>
-        </div>
+        </div> -->
     </div>
 </template>
 
-<script>
-import s from "./lotto.ts"
+<script lang="ts">
+import s from "./lottoScript"
 export default s
-
 </script>
+
 <style lang="css" scoped>
     .win-balls {
         display: flex;

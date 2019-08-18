@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-      "outDir": "./built/",
+      "module": "esnext",
+      "target": "esnext",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "importHelpers": true,
       "sourceMap": true,
       "strict": true,
-      "module": "es2015",
-      "moduleResolution": "node",
-      "target": "es5",
+      "lib": ["es5", "dom", "es6"],
       "skipLibCheck": true,
       "esModuleInterop": true,
       "experimentalDecorators": true,

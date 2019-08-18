@@ -6,10 +6,10 @@ module.exports = {
     mode: "development",
     devtool: "eval",
     entry: {
-        app: ["./src/index.ts"]
+        app: ["@babel/polyfill", "./src/index.ts"]
     },
     resolve: {
-        extensions: ["vue", "ts", "js", "json"],
+        extensions: [".ts", ".vue", ".js", ".json"],
         alias: {
             "vue$": "vue/dist/vue.esm.js"
         }
@@ -21,16 +21,16 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.js$/,
-            //     exclude: /node_modules/,
-            //     use: {
-            //         loader: 'babel-loader',
-            //         options: {
-            //             presets: ['@babel/preset-env'],
-            //         }   
-            //     }
-            // },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                    }   
+                }
+            },
             {
                 test: /\.vue$/,
                 loader: "vue-loader",
@@ -47,7 +47,7 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: "style-loader"
+                        loader: "vue-style-loader"
                     },
                     {
                         loader: 'css-loader',

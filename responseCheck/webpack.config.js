@@ -9,7 +9,7 @@ module.exports = {
         app: ["./src/index.ts"]
     },
     resolve: {
-        extensions: ["vue", "ts", "js", "json"],
+        extensions: [".ts", ".js", ".json"],
         alias: {
             "vue$": "vue/dist/vue.esm.js"
         }

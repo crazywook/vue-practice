@@ -1,5 +1,6 @@
 import Vue from "vue"
 
+import EventBus from "./EventBus"
 import LottoBall from "./lottoBall/lottoBall.vue"
 
 function getWinNumbers(amountOfBalls: number, amountOfWinBalls: number): number[] {
@@ -39,6 +40,7 @@ const component = Vue.extend({
             this.bonus = undefined
             this.winBalls = []
             this.redo = false
+            EventBus.$emit("onMore")
             // watch winBalls로 해결한다.
             // this.startLotto()
         },
@@ -70,6 +72,9 @@ const component = Vue.extend({
     },
     created() {
         console.log("created")
+        EventBus.$on("onMore", () => {
+            this.startLotto()
+        })
     },
     beforeDestroy() {
         interrupt = true
@@ -77,15 +82,15 @@ const component = Vue.extend({
     async mounted() {
         this.startLotto()
     },
-    watch: {
-        winBalls(val, prevVal) {
-            console.log("val", val)
-            console.log("prev", prevVal)
-            if (val.length === 0) {
-                this.startLotto()
-            }
-        }
-    }
+    // watch: {
+    //     winBalls(val, prevVal) {
+    //         console.log("val", val)
+    //         console.log("prev", prevVal)
+    //         // if (val.length === 0) {
+    //         //     this.startLotto()
+    //         // }
+    //     }
+    // }
 })
 
 export default component
