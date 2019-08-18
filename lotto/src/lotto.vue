@@ -1,7 +1,6 @@
 <template>
     <div>
-        <temp/>
-        <!-- <h1>{{result}}</h1>
+        <h1>{{result}}</h1>
         <div class="win-balls"> 
             <lotto-ball
                 v-for="ball in winBalls" v-bind:key="ball"
@@ -17,7 +16,7 @@
             >
                 한번 더!
             </button>
-        </div> -->
+        </div>
     </div>
 </template>
 
